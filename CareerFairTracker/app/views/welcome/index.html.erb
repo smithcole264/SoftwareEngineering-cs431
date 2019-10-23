@@ -1,2 +1,16 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+
+<%= "Counting to ten"%>
+<br/>
+
+<% 10.times do |x| %>
+    <%= x + 1 %>
+<% end %>
+
+<%= link_to("Go to sample",
+    {
+        :controller => "welcome",
+        :action => 'sample'
+    }
+)%>

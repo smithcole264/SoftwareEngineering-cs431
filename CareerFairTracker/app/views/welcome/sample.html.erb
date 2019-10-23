@@ -1,0 +1,32 @@
+<h1>Welcome#sample</h1>
+<p>Find me in app/views/welcome/sample.html.erb</p>
+
+<%= "Message from controller: #{@controller_message}" %>
+
+<br/>
+<%= link_to("Go to index", 
+    {
+        :controller => 'welcome',
+        :action => 'index'
+    }
+)%>
+
+<br/>
+<%= link_to("Go to index with ID", 
+    {
+        :controller => 'welcome',
+        :action => 'index',
+        :id => 69
+    }
+)%>
+
+<br/>
+<%= link_to("Go to index with ID and RANDOM", 
+    {
+        :controller => 'welcome',
+        :action => 'index',
+        :id => 69,
+        :random => "balls and boobs"
+    }
+)%>
+
