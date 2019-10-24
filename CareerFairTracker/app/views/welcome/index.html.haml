@@ -1,0 +1,20 @@
+%h1= "Controller: Welcome, Action: index"
+
+%p= "Counting to ten" 
+- 10.times do |x|
+    %span= x + 1
+
+%br 
+=link_to "Go to sample", controller: "welcome", action: "sample"
+%br
+
+- if (params.has_key?(:id) and params.has_key?(:random))
+    %p= "the id and some other shit was passed"
+    %p= "Id is: #{@id}"
+    %p= "Id can also be gotten like this: #{params['id']}"
+    %p= "other random shit: #{@whateverYouWant}"
+    %p= "and again gotten like: #{params['random']}"
+- if (params.has_key?(:id) and not params.has_key?(:random))
+    %p= "the id was passed by itself"
+    %p= "Id is: #{@id}"
+    %p= "Id can also be gotten like this: #{params['id']}"
