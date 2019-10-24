@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # get 'welcome/index'
 
+  # resources :welcome
+  ##### the above thing uses default methods like 'show' 'index(i tink idk)' 'create'
+  ##### if you want to route by hand you have to keep the above commented out!
   match ':controller(/:action(/:id))', :via => :get 
 
   root 'welcome#index'
