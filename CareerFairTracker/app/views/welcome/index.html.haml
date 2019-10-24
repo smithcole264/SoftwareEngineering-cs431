@@ -7,6 +7,9 @@
 %br 
 =link_to "Go to sample", controller: "welcome", action: "sample"
 
+%br 
+=link_to "Check out Students", controller: "students", action: "index"
+
 - if (params.has_key?(:id) and params.has_key?(:random))
     %p= "the id and some other shit was passed"
     %p= "Id is: #{@id}"
