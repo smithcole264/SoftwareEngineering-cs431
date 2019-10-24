@@ -1,3 +1,5 @@
-# SoftwareEngineering-cs431
+# CareerFairTracker
 
-Kyle Test
+## Why does this exist?
+
+## Getting Started:
