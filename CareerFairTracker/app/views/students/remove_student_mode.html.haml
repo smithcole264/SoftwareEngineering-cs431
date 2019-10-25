@@ -2,8 +2,6 @@
 
 %br 
 = link_to "Go Home", root_path
-%br
-= link_to "Edit/Remove a Student", remove_student_mode_path
 %br 
 %br 
 %table
@@ -21,4 +19,5 @@
                 %td= student.last_name 
                 %td= student.major 
                 %td= student.expected_grad_month
-                %td= student.expected_grad_year 
+                %td= student.expected_grad_year  
+                %td= link_to "Edit/Remove"
