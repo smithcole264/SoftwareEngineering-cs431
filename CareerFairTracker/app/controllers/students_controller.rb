@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
-    # def student_params
-    #     params.require(:student).permit(:fn, :ln)
-    # end
+    def student_params
+        params.require(:student).permit(:first_name, :last_name, :major, :expected_grad_month, :expected_grad_year)
+    end
 
     def index
         @students = Student.all 
@@ -17,9 +17,9 @@ class StudentsController < ApplicationController
     end
 
     def create
-        @student = Student.create!(first_name: params[:fn], last_name: params[:ln])
+        @student = Student.create!(student_params)
         flash[:notice] = "student was attempted to be added"
-        redirect_to student_index_path
+        redirect_to students_path
     end
 
     def update
