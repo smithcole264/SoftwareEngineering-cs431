@@ -1,5 +1,8 @@
 %h2 Add New Student 
-
+%br 
+= link_to "Go Home", root_path
+%br 
+%br 
 =form_tag(controller: :students, action: :create) do
     = label :student, :first_name, "First Name"
     = text_field(:student, :first_name)
