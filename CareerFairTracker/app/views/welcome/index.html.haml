@@ -1,17 +1,12 @@
-%h1= "Controller: Welcome, Action: index"
+%h1= CareerFairTracker
 
-%p= "Counting to ten" 
-- 10.times do |x|
-    %span= x + 1
-
+= link_to "View All Students", students_path
 %br 
-= link_to "ADD NEW STUDENT", controller: "login", action: "index"
+%br
+= link_to "Add New Student", new_student_path
 
-%br 
-=link_to "Go to sample", controller: "welcome", action: "sample"
-
-%br 
-=link_to "Check out Students", controller: "students", action: "index"
+-# %br 
+-# =link_to "Go to sample", controller: "welcome", action: "sample"
 
 - if (params.has_key?(:id) and params.has_key?(:random))
     %p= "the id and some other shit was passed"
