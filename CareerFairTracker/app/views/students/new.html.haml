@@ -1,0 +1,19 @@
+%h2 Add New Student 
+
+=form_tag(controller: :students, action: :create) do
+    = label :student, :first_name, "First Name"
+    = text_field(:student, :first_name)
+    %br
+    = label :student, :last_name, "Last Name"
+    = text_field(:student, :last_name)
+    %br
+    = label :student, :major, "Major"
+    = text_field(:student, :major)
+    %br
+    = label :student, :expected_grad_month, "Expected Graduation Month"
+    = text_field(:student, :expected_grad_month)
+    %br
+    = label :student, :expected_grad_year, "Expected Graduation Year"
+    = text_field :student, "expected_grad_year"
+    %br
+    = submit_tag "Submit"

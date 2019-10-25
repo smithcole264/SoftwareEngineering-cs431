@@ -1,20 +1,20 @@
-%h2 Add New Student 
+-# %h2 Add New Student 
 
-= form_tag login_index_path do 
-    = label :student, :first_name, "First Name"
-    = text_field :student, "fn"
-%br
-    = label :student, :last_name, "Last Name"
-    = text_field :student, "ln"
-%br
-    = label :student, :major, "Major"
-    = text_field :student, "major"
-%br
-    = label :student, :expected_grad_month, "Expected Graduation Month"
-    = text_field :student, "expected_grad_month"
-%br
-    = label :student, :expected_grad_year, "Expected Graduation Year"
-    = text_field :student, "expected_grad_year"
-%br
-%h4 Submit
-= link_to "Submit This New Student", controller: "students", action: "create", first_name: "fn", last_name: "ln"
+-# = form_tag login_index_path do 
+-#     = label :student, :first_name, "First Name"
+-#     = text_field :student, "fn"
+-# %br
+-#     = label :student, :last_name, "Last Name"
+-#     = text_field :student, "ln"
+-# %br
+-#     = label :student, :major, "Major"
+-#     = text_field :student, "major"
+-# %br
+-#     = label :student, :expected_grad_month, "Expected Graduation Month"
+-#     = text_field :student, "expected_grad_month"
+-# %br
+-#     = label :student, :expected_grad_year, "Expected Graduation Year"
+-#     = text_field :student, "expected_grad_year"
+-# %br
+-# %h4 Submit
+-# = link_to "Submit This New Student", controller: "students", action: "create", first_name: "fn", last_name: "ln"
