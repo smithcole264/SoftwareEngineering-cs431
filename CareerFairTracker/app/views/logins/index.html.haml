@@ -1,0 +1,17 @@
+%h1 Welcome Back 
+%br 
+= link_to "Go Home", root_path
+
+= form_tag(controller: :logins, action: :index) do 
+    = label :login, :username, "Username"
+    = text_field(:login, :username)
+    %br 
+    = label :login, :password, "Password"
+    = text_field(:login, :password)
+    %br 
+    = submit_tag "Login"
+
+-# \= label :student, :first_name, "First Name"
+-#     = text_field(:student, :first_name)
+-#  %br
+-#     = submit_tag "Submit"
