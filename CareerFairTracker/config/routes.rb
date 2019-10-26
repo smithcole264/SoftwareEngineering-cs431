@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :home
   resources :students
-  resources :login
+  resources :logins
 
   # match ':controller(/:action(/:id))', :via => :get 
   # match ':controller(/:action(/:id))', :via => :post
