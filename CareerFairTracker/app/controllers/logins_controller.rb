@@ -1,8 +1,9 @@
 class LoginsController < ApplicationController
+
   def index
-    if params[:loginFailed]
-      @possible_login_error_message = "Login Failed"
-    end
+    # attemptLogin(params[:login][:username], params[:login][:password])  
+    @possible_login_error_message = params[:login_error_message]
+      # end
   end
 
   def show

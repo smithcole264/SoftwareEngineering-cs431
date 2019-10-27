@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   root 'home#index'
 
   match '/dashboards' => 'dashboards#index', via: :post
+  match '/logins' => 'logins#index', via: :get
+  match '/logins' => 'logins#index', via: :post
+  
   # post '/dashboards/:username/display' => 'dashboards#index'
 
   resources :home
   resources :students
   resources :logins
-
-  
-
   resources :dashboards
 
   # match ':controller(/:action(/:id))', :via => :get 

@@ -12,11 +12,11 @@
 %h3 Password: password
 %br
 %h3 or... 
-= link_to "Go strait to dashboard (bypass login)", dashboards_path(bypass: :true)
+= link_to "Go strait to dashboard (bypass login)", controller: :dashboards, action: :index, bypass: :true
 %h5 _________________________________
 %br
 %br
-=form_tag("/dashboards")do
+= form_tag("/dashboards") do
     = label :login, :user_type, "User Type"
     = text_field(:login, :user_type)
     %br
