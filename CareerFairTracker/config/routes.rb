@@ -2,9 +2,16 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  match '/dashboards' => 'dashboards#index', via: :post
+  # post '/dashboards/:username/display' => 'dashboards#index'
+
   resources :home
   resources :students
-  resources :login
+  resources :logins
+
+  
+
+  resources :dashboards
 
   # match ':controller(/:action(/:id))', :via => :get 
   # match ':controller(/:action(/:id))', :via => :post
