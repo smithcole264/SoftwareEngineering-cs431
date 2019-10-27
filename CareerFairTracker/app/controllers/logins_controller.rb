@@ -1,5 +1,8 @@
 class LoginsController < ApplicationController
   def index
+    if params[:loginFailed]
+      @possible_login_error_message = "Login Failed"
+    end
   end
 
   def show
