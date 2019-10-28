@@ -4,10 +4,6 @@ RSpec.describe User, type: :model do
 
   subject { User.new(user_type: 'test_type', username: 'test_username', password: 'test_password')}
 
-  it 'should use in memory database' do 
-    expect(ActiveRecord::Base.connection_config[:database]).to match(/memory/)
-  end
-
   it 'user should be created without attributes(they are all nil)' do
     user = User.new()
     expect(user).to be_an_instance_of(User)
@@ -46,8 +42,9 @@ RSpec.describe User, type: :model do
 
   it 'test db connection by getting seeded user' do 
     # candidateUser = User.first(:conditions => "user_type = 'ADMIN'")
-    new_user = {:user_type => "testt", :username => "testu", :password => "testp"}
-    User.create!(new_user)
+    user = {:user_type => "testt", :username => "testu", :password => "testp"}
+    new_user = User.new(user).save()
+    # User.create!(user)
     candidateUser = User.all
     expect(candidateUser).to eq(new_user)
   end
