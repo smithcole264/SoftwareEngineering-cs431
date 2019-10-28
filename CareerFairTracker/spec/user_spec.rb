@@ -43,10 +43,10 @@ RSpec.describe User, type: :model do
   it 'test db connection by getting seeded user' do 
     # candidateUser = User.first(:conditions => "user_type = 'ADMIN'")
     user = {:user_type => "testt", :username => "testu", :password => "testp"}
-    new_user = User.new(user).save()
+    User.create!(subject.attributes)
     # User.create!(user)
-    candidateUser = User.all
-    expect(candidateUser).to eq(new_user)
+    candidateUser = User.all.first
+    expect(candidateUser.attributes).to eq(subject.attributes)
   end
 
   # it 'create and save user and test retrieve' do 
