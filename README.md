@@ -35,5 +35,6 @@ There is several methods to get ruby on rails working on your computer but one o
   16.	You can clone our project via github and once you have that you will cd into our project and       type “bundle install”, this will download all of the gems you need
   17.	Type “rails db:migrate”, then “rails db:seed”, and finally “rails server”, this will get you       set up and running the server on your machine.
   18.	Finally, in order to see the project, go to your web browser and enter the URL localhost:3000
+  
 This will allow you to see our project working on your local machine, we are also going to have a heroku link that allows you to connect to the server without all of these steps but you will not be able to see all of the code and add to the project if you wish to do so.
 
