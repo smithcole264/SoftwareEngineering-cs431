@@ -1,15 +1,19 @@
 # CareerFairTracker
 
 ## What is the purpose of this project?
+The purpose of this project is to create a seamless check-in system through a web application that allows students attending the annual TAMU CSCE Career Fair to check-in at each company booth by scanning a QR code that links students' profiles to companies.
 
 ### What is the problem?
+Many company recruiters at career fairs have attending students input information on devices or only take physical copies of resumes and cover letters. This can bog down lines, which increases wait times and decreases the amount of students that company recruiters can talk with, as well as the amount of companies that students can talk with. For recruitors, they only have the opportunity to learn about students in one-on-one conversations. Sometimes, students can be in a major or class year that the company is not recruiting for, which wastes the time of students and recruiters.
 
 ### What is the solution?
-Maintain/create a database of students and their majors. Allow these students to be able to check-in with recruitors at Computer Science career fairs. Deny non-CS majors from "checking-in" so recruitors don't have student's they don't want wasting their time.
+Create and maintain a database of students, their majors, and any other pertinent information. Allow these students to be able to check-in with recruiters at CSCE career fairs. Communicate to and deny students with non-relevant majors and class years from "checking-in" so recruiters and students don't have their time wasted.
 
 ## Why does this matter?
+The CSCE Career Fair is a large event that is a prime opportunity for students to seek employment and explore career options. Companies are able to send employees to meet many qualified employee prospects individually and in-person. By making the CSCE Career Fair a more seamless experience for students and recruiters, both parties can utilize their time to its fullest potential and maximize the opportunity of such a large on-campus event.
 
 ## How does this all work together?
+
 
 ## How to use this app:
 
