@@ -16,6 +16,7 @@ The CSCE Career Fair is a large event that is a prime opportunity for students t
 
 
 ## How to use this app:
+In your browser, type and enter this URL to the Heroku-hosted web page: (TODO: Insert Heroku app container URL)
 
 ## Getting Started:
 
