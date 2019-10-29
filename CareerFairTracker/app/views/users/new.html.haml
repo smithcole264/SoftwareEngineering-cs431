@@ -1,0 +1,20 @@
+%h1 Signup
+%br
+= form_for dashboards_path do |form|
+    = label_tag "What type of user are you?"
+    = select_tag :user_type,
+        options_for_select([["Admin", "admin"], ["Student", "student"], ["Recruitor", "recruitor"]]),
+        prompt: "---------"
+    %br
+    %br
+    = label_tag :username
+    = text_field_tag :username
+    %br
+    = label_tag :password 
+    = password_field_tag :password
+    %br
+    = label_tag :confirm_password 
+    = password_field_tag :confirm_password
+    %br
+    %br
+    = submit_tag "Submit"
