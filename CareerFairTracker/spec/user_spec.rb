@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  subject {user_type: 'test_type', username: 'test_username', password_digest: 'test_password'}
+  subject { User.new(user_type: 'test_type', username: 'test_username', password_digest: 'test_password')}
 
   it 'test db connection by getting seeded user' do 
     User.create!(subject)
