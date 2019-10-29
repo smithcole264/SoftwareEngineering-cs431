@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-    validates_presence_of :user_type, :username, :password
+    has_secure_password
+    
+    validates :username, presence: true, uniqueness: true
+    validates_presence_of :user_type, :password_digest
 
     #attr_accessor :user_type, :username, :password
     
