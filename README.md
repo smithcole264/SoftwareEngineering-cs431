@@ -15,7 +15,7 @@ Maintain/create a database of students and their majors. Allow these students to
 
 ## Getting Started:
 
-## Setting up Ruby on Rails on Your Windows Computer
+## Setting up Ruby on Rails on Your Windows Computer:
 There is several methods to get ruby on rails working on your computer but one of the easiest ways to install it on your windows machine. Below will be a step by step guide for getting it setup in order to run our project on your local machine.
   1.	You will need to download the 7-zip file for ruby 2.6.5 for your computer at                       https://rubyinstaller.org/downloads/ 
   2.	Unzip this file to a place you plan on storing this file
