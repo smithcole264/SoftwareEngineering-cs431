@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
   root 'home#index'
+  
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  match '/users/new', to: 'dashboards#index', as: 'dashboard', via: :post
   match '/dashboards' => 'dashboards#index', via: :post
   match '/logins' => 'logins#index', via: :get
   match '/logins' => 'logins#index', via: :post
@@ -13,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :home
   resources :students
-  resources :logins
+  # resources :logins
   resources :dashboards
 
   # match ':controller(/:action(/:id))', :via => :get 
