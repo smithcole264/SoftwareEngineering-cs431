@@ -20,6 +20,28 @@ RSpec.configure do |config|
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   # require 'rubygems'
+  require 'database_cleaner'
+  config.before(:suite) do 
+    DatabaseCleaner.orm = "sequel"
+    DatabaseCleaner.clean_with :truncation, {:only => %w{users} } 
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each, :database) do
+    # open transaction
+    DatabaseCleaner.start
+  end
+
+  config.after(:each, :database) do
+    DatabaseCleaner.clean
+  end
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
