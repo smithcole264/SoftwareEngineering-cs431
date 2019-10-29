@@ -2,18 +2,20 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  subject { User.new(user_type: 'test_type', username: 'test_username', password_digest: 'test_password')}
+  # subject { User.new(user_type: 'test_type', username: 'test_username', password_digest: 'test_password')}
 
   it 'test db connection by getting seeded user' do 
-    User.create!(subject)
+    user = {user_type: 'test_type', username: 'test_username', password_digest: 'test_password'}
+    User.create!(user)
     candidate = User.last
-    expect(candidate.attributes.key(:username)).to eq(subject.key(:username))
+    expect(candidate.attributes.key(:username)).to eq(user.key(:username))
   end
 
   it 'test that password is being stored correctly' do
-    User.create!(subject)
+    user = {user_type: 'test_type', username: 'test_username', password_digest: 'test_password'}
+    User.create!(user)
     candidate = User.last 
-    expect(candidate.attributes.key(:password_digest)).not_to eq(subject.key(:password_digest))
+    expect(candidate.attributes.key(:password_digest)).not_to eq(user.key(:password_digest))
   end
 
   # it 'create and save user and test retrieve' do 
