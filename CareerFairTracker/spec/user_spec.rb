@@ -2,49 +2,18 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  subject { User.new(user_type: 'test_type', username: 'test_username', password: 'test_password')}
-
-  it 'user should be created without attributes(they are all nil)' do
-    user = User.new()
-    expect(user).to be_an_instance_of(User)
-  end
-
-  it 'user should not be created without user_type' do 
-    user = User.new(username: '', password: '').save 
-    expect(user).to eq(false)
-  end
-  
-  it 'user should not be created without username' do 
-    user = User.new(user_type: '', password: '').save 
-    expect(user).to eq(false)
-  end
-
-  it 'user should not be created without password' do 
-    user = User.new(user_type: '', username: '').save 
-    expect(user).to eq(false)
-  end
-
-  it 'create user with all attributes' do 
-    expect(subject).to be_a(User)
-  end
-
-  it 'get user_type from created user' do 
-    expect(subject.user_type).to eq('test_type')
-  end
-
-  it 'get username from created user' do 
-    expect(subject.username).to eq('test_username')
-  end
-
-  it 'get password from created user' do 
-    expect(subject.password).to eq('test_password')
-  end
+  subject {user_type: 'test_type', username: 'test_username', password_digest: 'test_password'}
 
   it 'test db connection by getting seeded user' do 
-    user = {:user_type => "test_type", :username => "test_username", :password => "test_password"}
-    User.create!(user)
-    candidateUser = User.last
-    expect(candidateUser.attributes.key(:username)).to eq(user.key(:username))
+    User.create!(subject)
+    candidate = User.last
+    expect(candidate.attributes.key(:username)).to eq(subject.key(:username))
+  end
+
+  it 'test that password is being stored correctly' do
+    User.create!(subject)
+    candidate = User.last 
+    expect(candidate.attributes.key(:password_digest)).not_to eq(subject.key(:password_digest))
   end
 
   # it 'create and save user and test retrieve' do 
