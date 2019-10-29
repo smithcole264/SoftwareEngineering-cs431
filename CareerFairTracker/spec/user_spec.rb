@@ -11,12 +11,13 @@ RSpec.describe User, type: :model do
     expect(candidate.attributes.key(:username)).to eq(user.key(:username))
   end
 
-  it 'test that password is being stored correctly' do
-    user = {user_type: 'test_type', username: 'test_username', password_digest: 'test_password'}
-    User.create!(user)
-    candidate = User.last 
-    expect(candidate.attributes.key(:password_digest)).not_to eq(user.key(:password_digest))
-  end
+  # it 'test that password is being stored correctly' do
+  #   user = {user_type: 'test_type', username: 'test_username', password_digest: 'test_password'}
+  #   User.create!(user)
+  #   candidate = User.last 
+  #   puts candidate.attributes
+  #   expect(candidate.attributes.key(:password_digest)).not_to eq(user.key(:password_digest))
+  # end
 
   # it 'create and save user and test retrieve' do 
   #   User.create!({:user_type => "test_type", :username => "test_username", :password => "test_password"})
