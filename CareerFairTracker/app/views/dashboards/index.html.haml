@@ -5,6 +5,7 @@
 %br 
 %p= "#{@welcome_message}"
 %br
+= link_to "Edit Profile", edit_student_path(session[:user_id])
 %h2 ____________________________________________________________________________________
 = link_to "View All Students", students_path
 %br 
