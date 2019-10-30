@@ -1,11 +1,12 @@
-%h1{:style => "text-align: center;"}= "#{@user_type} Dashboard" 
+%h1{ :style => "text-align: center;"} Carreer Fair Tracker 
+%h2{ :style => "text-align: left;"}= "#{@user_type} Dashboard" 
 %br 
 = link_to "Logout", logout_path
 %br
 %br 
 %p= "#{@welcome_message}"
 %br
-= link_to "Edit Profile", edit_student_path(session[:user_id])
+= link_to "Edit Profile", edit_user_path(session[:user_id])
 %h2 ____________________________________________________________________________________
 = link_to "View All Students", students_path
 %br 
