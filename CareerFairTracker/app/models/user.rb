@@ -3,7 +3,6 @@ class User < ApplicationRecord
     
     validates :username, presence: true, uniqueness: true
     validates_presence_of :user_type, :password_digest
-
     #attr_accessor :user_type, :username, :password
     
     # def initialize(user_type, username, password)
