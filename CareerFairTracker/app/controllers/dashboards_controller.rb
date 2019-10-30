@@ -1,12 +1,12 @@
 class DashboardsController < ApplicationController
-    # def dashboard_params
-    #     params.require(:login).permit(:user_type, :username, :password)
-    # end
 
     def index
-        if params.has_key?(:user_type) && params.has_key?(:username) && params.has_key?(:password)
-            User.create!({user_type: params[:user_type], username: params[:username], password: params[:password]})
-            
+        if session[:user_id] != nil
+            user = User.find(session[:user_id])
+            @user_type = user.user_type
+            @welcome_message = "Welcome #{user.username}"
+        else 
+            redirect_to root_url, notice: "You need to be signed in to do that."
         end
     end
 
