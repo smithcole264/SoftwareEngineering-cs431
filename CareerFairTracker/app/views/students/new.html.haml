@@ -1,6 +1,6 @@
 %h2 Add New Student 
 %br 
-= link_to "Go Home", root_path
+= link_to "Back to Dashboard", dashboards_path(bypass: :true)
 %br 
 %br 
 =form_tag(controller: :students, action: :create) do
