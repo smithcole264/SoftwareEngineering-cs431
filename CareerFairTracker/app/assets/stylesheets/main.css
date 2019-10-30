@@ -252,23 +252,23 @@ tbody tr:hover {
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
-    content: "Date";
+    content: "First Name";
   }
   table tbody tr td:nth-child(2):before {
-    content: "Order ID";
+    content: "Last Name";
   }
   table tbody tr td:nth-child(3):before {
-    content: "Name";
+    content: "Major";
   }
   table tbody tr td:nth-child(4):before {
-    content: "Price";
+    content: "Expected Grad Month";
   }
   table tbody tr td:nth-child(5):before {
-    content: "Quantity";
+    content: "Expected Grad Year";
   }
-  table tbody tr td:nth-child(6):before {
+  /* table tbody tr td:nth-child(6):before {
     content: "Total";
-  }
+  } */
 
   .column4,
   .column5,
