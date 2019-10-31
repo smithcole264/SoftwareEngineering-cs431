@@ -12,9 +12,6 @@ Create and maintain a database of students, their majors, and any other pertinen
 ## Why does this matter?
 The CSCE Career Fair is a large event that is a prime opportunity for students to seek employment and explore career options. Companies are able to send employees to meet many qualified employee prospects individually and in-person. By making the CSCE Career Fair a more seamless experience for students and recruiters, both parties can utilize their time to its fullest potential and maximize the opportunity of such a large on-campus event.
 
-## How does this all work together?
-
-
 ## How to use this app:
 In your browser, type and enter this URL to the Heroku-hosted web page: (TODO: Insert Heroku app container URL)
 
