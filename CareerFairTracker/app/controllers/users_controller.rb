@@ -24,6 +24,12 @@ class UsersController < ApplicationController
 
   def create
       @user = User.new(user_params)
+      logger.debug "______________________"
+      logger.debug @user[:user_type]
+      logger.debug user_params
+      # if @user[:user_type] == "Recruiter"
+
+
       if @user.save
         session[:user_id] = @user.id 
         redirect_to dashboard_url

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :events
+  resources :recruiters
   root 'home#index'
   post 'users', to: 'users#create', as: 'user'
  

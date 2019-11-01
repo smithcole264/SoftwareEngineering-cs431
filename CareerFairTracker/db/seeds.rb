@@ -27,3 +27,12 @@ mock_users = [
 mock_users.each do |user|
     User.create!(user)
 end
+
+mock_events = [
+    {:name => "Computer Science Career Fair", :event_date => "2019-11-01", :start_time => "10:00", :end_time => "18:00"},
+    {:name => "Business Career Fair", :event_date => "2019-11-08", :start_time => "10:00", :end_time => "18:00"}
+]
+
+mock_events.each do |event|
+    Event.create!(event)
+end
