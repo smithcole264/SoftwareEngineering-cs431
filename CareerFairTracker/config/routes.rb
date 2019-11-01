@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :admins
   resources :events
   resources :recruiters
   root 'home#index'
