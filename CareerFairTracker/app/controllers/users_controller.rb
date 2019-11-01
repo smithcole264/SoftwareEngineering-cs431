@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    
   end
 
   def show
@@ -14,6 +15,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if session[:user_id] != nil
+      user = User.find(session[:user_id])
+      @user_type = user.user_type
+      @profile_name = "#{user.username}"
+    end
   end
 
   def create
