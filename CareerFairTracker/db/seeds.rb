@@ -5,6 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+mock_users = [
+    {:user_type => "ADMIN", :username => "admin", :password => "password"},
+    {:user_type => "STUDENT", :username => "student", :password => "password"},
+    {:user_type => "RECRUITOR", :username => "recruitor", :password => "password"},
+    {:user_type => "TEAMMATE", :username => "teamMember", :password => "password"}
+]
+mock_users.each do |user|
+    User.create!(user)
+end
 
 mock_students = [
     {:first_name => "Jack Conrad", :last_name => "Clark", :major => "Computer Science", :expected_grad_month => "December", :expected_grad_year => 2019},
@@ -18,21 +27,10 @@ mock_students.each do |student|
     Student.create!(student)
 end
 
-mock_users = [
-    {:user_type => "ADMIN", :username => "admin", :password => "password"},
-    {:user_type => "STUDENT", :username => "student", :password => "password"},
-    {:user_type => "RECRUITOR", :username => "recruitor", :password => "password"},
-    {:user_type => "TEAMMATE", :username => "teamMember", :password => "password"}
-]
-mock_users.each do |user|
-    User.create!(user)
-end
-
 mock_events = [
     {:name => "Computer Science Career Fair", :event_date => "2019-11-01", :start_time => "10:00", :end_time => "18:00"},
     {:name => "Business Career Fair", :event_date => "2019-11-08", :start_time => "10:00", :end_time => "18:00"}
 ]
-
 mock_events.each do |event|
     Event.create!(event)
 end
