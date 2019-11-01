@@ -11,56 +11,20 @@ RSpec.describe User, type: :model do
     expect(candidate.attributes.key(:username)).to eq(user.key(:username))
   end
 
-  # it 'test that password is being stored correctly' do
-  #   user = {user_type: 'test_type', username: 'test_username', password_digest: 'test_password'}
-  #   User.create!(user)
-  #   candidate = User.last 
-  #   puts candidate.attributes
-  #   expect(candidate.attributes.key(:password_digest)).not_to eq(user.key(:password_digest))
-  # end
+  it 'test User_Factory object creation' do
+    adminUserHash = {user_type: 'Admin', username: 'test_username', password_digest: 'test_password'}
+    # studentUser = {user_type: 'Student', username: 'test_username', password_digest: 'test_password'}
+    # recruiterUser = {user_type: 'Recruiter', username: 'test_username', password_digest: 'test_password'}
+    # newAdminUser = UsersController.UserFactory(adminUser)
+    # newStudentUser = UsersController.UserFactory(studentUser)
+    # newRecruiterUser = UsersController.UserFactory(recruiterUser)
 
-  # it 'create and save user and test retrieve' do 
-  #   User.create!({:user_type => "test_type", :username => "test_username", :password => "test_password"})
-  #   # candidateUser = User.where("user_type = 'test_type'")
-  #   candidateUser = User.first(:conditions => "user_type = 'test_type'")
-  #   expect(candidateUser.user_type).to eq('test_type')
-  # end
-  # it 'instantiates user with all arguments' do
-  #   # user = User.new(user_type: 'test_type', username: 'test_name', password: 'test_password').save
-  #   expect(subject).to be_an_instance_of(User)
-  # end
-
-  # it 'create new user, should respond to `get_user_type`' do 
-  #   user = User.create 
-  #   expect(user).to respond_to :user_type 
-  # end
-
-  # it 'create new user, should respond to `get_username`' do 
-  #   user = User.create 
-  #   expect(user).to respond_to :username 
-  # end
-
-  # it 'create new user, should respond to `get_password`' do 
-  #   user = User.create 
-  #   expect(user).to respond_to :password 
-  # end
-
-  # it 'create user with attributes and read those values' do
-  #   user = User.new(user_type: 'test_type', username: 'test', password: 'test').save
-  #   expect(user.user_type).to eq('test_type')
-  # end
-
-  
-
-
-  # describe 'create_and_save_user' do
-  #   it 'should_be_created_and_retrieved_from_db' do 
-  #     user = User.new() 
-  #     User.create!(user)
-  #     candidateUser = User.take
-  #     expect(candidateUser.username).to be ""
-  #   end
-  # end
+    adminUser = User.new(adminUserHash)
+    newAdminUser = UsersController.UserFactory(adminUser)
+    expect(newAdminUser).to be_a(Admin)
+    # expect(newStudentUser).to be_a(Student)
+    # expect(newRecruiterUser).to be_a(Recruiter)
+  end
 
 end
 
