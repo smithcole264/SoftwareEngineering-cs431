@@ -13,17 +13,19 @@ RSpec.describe User, type: :model do
 
   it 'test User_Factory object creation' do
     adminUserHash = {user_type: 'Admin', username: 'test_username', password_digest: 'test_password'}
-    # studentUser = {user_type: 'Student', username: 'test_username', password_digest: 'test_password'}
-    # recruiterUser = {user_type: 'Recruiter', username: 'test_username', password_digest: 'test_password'}
-    # newAdminUser = UsersController.UserFactory(adminUser)
-    # newStudentUser = UsersController.UserFactory(studentUser)
-    # newRecruiterUser = UsersController.UserFactory(recruiterUser)
-
     adminUser = User.new(adminUserHash)
     newAdminUser = UsersController.UserFactory(adminUser)
     expect(newAdminUser).to be_a(Admin)
-    # expect(newStudentUser).to be_a(Student)
-    # expect(newRecruiterUser).to be_a(Recruiter)
+
+    studentUserHash = {user_type: 'Student', username: 'test_username', password_digest: 'test_password'}
+    studentUser = User.new(studentUserHash)
+    newStudentUser = UsersController.UserFactory(studentUser)
+    expect(newStudentUser).to be_a(Student)
+    
+    recruiterUserHash = {user_type: 'Recruiter', username: 'test_username', password_digest: 'test_password'}
+    recruiterUser = User.new(recruiterUserHash)
+    newRecruiterUser = UsersController.UserFactory(recruiterUser)
+    expect(newRecruiterUser).to be_a(Recruiter)
   end
 
 end
