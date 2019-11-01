@@ -5,9 +5,8 @@
 %br 
 %p= "#{@welcome_message}"
 %br
-= link_to "Edit Profile", edit_student_path(session[:user_id])
-%br
 - if @user_type == "Admin"
+    = link_to "Edit Profile", edit_admin_path(session[:user_id])
     = link_to "Add Event", new_event_path
     %h2{:style => "text-align: center;"}= "Events" 
 
