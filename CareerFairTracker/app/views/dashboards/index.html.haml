@@ -1,0 +1,39 @@
+%h1{ :style => "text-align: center;"} Carreer Fair Tracker 
+%h2{ :style => "text-align: left;"}= "#{@user_type} Dashboard" 
+%br 
+= link_to "Logout", logout_path
+%br
+%br 
+%p= "#{@welcome_message}"
+%br
+- if @user_type == "Admin"
+    = link_to "Edit Profile", edit_admin_path(session[:user_id])
+    = link_to "Add Event", new_event_path
+    %h2{:style => "text-align: center;"}= "Events" 
+
+-# %h3= Date.today
+%br
+%table
+    %thead 
+        %tr 
+            %th Event Name 
+            %th Event Date 
+            %th Start Time 
+            %th End Time  
+    %tbody 
+        -@events.each do |event|
+            %tr 
+                %td= event.name
+                %td= event.event_date 
+                %td= event.start_time 
+                %td= event.end_time
+%br
+
+-# if Admin user-type is detected
+    -# render the admin dashboard
+
+-# elsif Student user-type is detected
+    -# render the student dashboard
+
+-# elsif Recruiter user-type is detected
+    -# render the recruiter dashboard

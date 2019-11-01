@@ -1,11 +1,13 @@
-%h2 All Students 
-
+%h1{ :style => "text-align: center;"} Carreer Fair Tracker 
+%h2{ :style => "text-align: left;"} All Students 
 %br 
-= link_to "Go Home", root_path
+= link_to "Add New Student", new_student_path
 -# %br
 -#= link_to "Edit/Remove a Student", remove_student_mode_path
 %br 
-%br 
+%br
+= link_to "Back to Dashboard", dashboards_path(bypass: :true)
+%br
 %table
     %thead 
         %tr 

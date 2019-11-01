@@ -17,7 +17,20 @@ class StudentsController < ApplicationController
     end
 
     def create
-        @student = Student.create!(student_params)
+        #Conditional can definitely be shortened
+        #Some Failed attempts:
+            #if student_params[:all] != ""
+            #if student_params[:all].present?
+            #if student_params[:first_name, :last_name] != ""
+            #if student_params[:first_name, :last_name].present?
+        if student_params[:first_name] != "" &&
+        student_params[:last_name] != "" &&
+        student_params[:major] != "" &&
+        student_params[:expected_grad_month] != "" &&
+        student_params[:expected_grad_year] != ""
+            @student = Student.create!(student_params)
+        end
+        #This flash statement doesn't appear to do anything
         flash[:notice] = "student was attempted to be added"
         redirect_to students_path
     end

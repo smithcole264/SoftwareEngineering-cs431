@@ -1,6 +1,7 @@
-%h2 Add New Student 
+%h1{ :style => "text-align: center;"} Carreer Fair Tracker 
+%h2{ :style => "text-align: left;"} Add New Student 
 %br 
-= link_to "Go Home", root_path
+= link_to "Back to Dashboard", dashboards_path(bypass: :true)
 %br 
 %br 
 =form_tag(controller: :students, action: :create) do

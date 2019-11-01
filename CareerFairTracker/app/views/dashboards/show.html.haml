@@ -1,0 +1,12 @@
+%h1{ :style => "text-align: center;"} Career-Fair Tracker Dashboard 
+%br 
+= link_to "Logout", logout_path
+%br
+%br 
+%p= "#{@welcome_message}"
+%br
+%h2 ____________________________________________________________________________________
+= link_to "View All Students", students_path
+%br 
+%br
+= link_to "Add New Student", new_student_path

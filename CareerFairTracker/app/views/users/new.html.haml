@@ -1,0 +1,18 @@
+%h1 Signup
+%br
+= form_for signup_path do |form|
+    = form.label "What type of user are you?"
+    = select(:user, :user_type, options_for_select([["----------", ""], ["Admin", "Admin"], ["Student", "Student"], ["Recruitor", "Recruitor"]]))
+    %br
+    %br
+    = form.label :username
+    = text_field(:user, :username)
+    %br
+    = form.label :password 
+    = password_field(:user, :password)
+    -# %br
+    -# = form.label :confirm_password 
+    -# = password_field(:user, :confirm_password)
+    -# %br
+    %br
+    = form.submit "Submit"
