@@ -23,6 +23,7 @@ class UsersController < ApplicationController
       logger.debug user_params
       # if @user[:user_type] == "Recruiter"
 
+
       if @user.save
         session[:user_id] = @user.id 
         redirect_to dashboard_url
