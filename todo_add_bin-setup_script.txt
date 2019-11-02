@@ -1,0 +1,5 @@
+TODO for 431 tonight
+
+- write bin/setup script that runs right after the code is cloned from github
+    from `grab bag for ruby on rails tips` 5 minutes in
+- add info about running this on readme

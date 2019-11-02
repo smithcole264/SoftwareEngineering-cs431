@@ -12,20 +12,20 @@ RSpec.describe User, type: :model do
   end
 
   it 'test User_Factory object creation' do
-    adminUserHash = {user_type: 'Admin', username: 'test_username', password_digest: 'test_password'}
-    adminUser = User.new(adminUserHash)
-    newAdminUser = UsersController.UserFactory(adminUser)
-    expect(newAdminUser).to be_a(Admin)
+    adminHash = {user_type: 'Admin', username: 'test_username', password_digest: 'test_password'}
+    admin = User.new(adminHash)
+    newAdmin = UsersController.establish(admin)
+    expect(newAdmin).to be_a(Admin)
 
-    studentUserHash = {user_type: 'Student', username: 'test_username', password_digest: 'test_password'}
-    studentUser = User.new(studentUserHash)
-    newStudentUser = UsersController.UserFactory(studentUser)
-    expect(newStudentUser).to be_a(Student)
+    studentHash = {user_type: 'Student', username: 'test_username', password_digest: 'test_password'}
+    student = User.new(studentHash)
+    newStudent = UsersController.establish(student)
+    expect(newStudent).to be_a(Student)
     
-    recruiterUserHash = {user_type: 'Recruiter', username: 'test_username', password_digest: 'test_password'}
-    recruiterUser = User.new(recruiterUserHash)
-    newRecruiterUser = UsersController.UserFactory(recruiterUser)
-    expect(newRecruiterUser).to be_a(Recruiter)
+    recruiterHash = {user_type: 'Recruiter', username: 'test_username', password_digest: 'test_password'}
+    recruiter = User.new(recruiterHash)
+    newRecruiter = UsersController.establish(recruiter)
+    expect(newRecruiter).to be_a(Recruiter)
   end
 
 end

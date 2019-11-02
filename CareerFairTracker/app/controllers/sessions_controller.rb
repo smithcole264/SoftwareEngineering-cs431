@@ -4,13 +4,21 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_username(params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id 
+    if isAuthentic?(user)
+      session[:user_id] = user.id
       redirect_to dashboard_url
     else 
-      flash.now[:alert] = "Email or password was invalid"
+      alert_email_or_password_invalid
       render "new"
     end
+  end
+
+  def isAuthentic?(user)
+    user && user.authenticate(params[:password])
+  end
+
+  def alert_email_or_password_invalid
+    flash.now[:alert] = "Email or password was invalid"
   end
 
   def destroy

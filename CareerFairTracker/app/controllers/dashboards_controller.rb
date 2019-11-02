@@ -6,6 +6,7 @@ class DashboardsController < ApplicationController
             user = User.find(session[:user_id])
             @user_type = user.user_type
             @welcome_message = "Welcome #{user.username}"
+            @user_tag = user.first
         else 
             redirect_to root_url, notice: "You need to be signed in to do that."
         end

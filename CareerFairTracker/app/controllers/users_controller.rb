@@ -22,7 +22,21 @@ class UsersController < ApplicationController
     end
   end
 
-  def self.UserFactory(user)
+  def create
+    @user = User.new(user_params)
+    log_type_and_params
+      
+    if @user.save!
+      @newUser = self.establish(@user)
+      @newUser.save!
+      session[:user_id] = @newUser.id 
+      redirect_to dashboard_url
+    else
+      redirect_to root_url, notice: get_user_creation_error
+    end   
+  end
+
+  def establish(user)
     newUser = ''
     user_type = user[:user_type]
     if user_type == "Admin"
@@ -35,26 +49,14 @@ class UsersController < ApplicationController
     return newUser
   end
 
-  def create
-      user = User.new(user_params)
-      newUser = UsersController.UserFactory(user)
-      # @user_type = @user[:user_type]
-      # could be a good place for a factory method
-      logger.debug "______________________"
-      logger.debug user[:user_type]
-      logger.debug user_params
+  def log_type_and_params
+    logger.debug "______________________"
+    logger.debug @user[:user_type]
+    logger.debug user_params
+  end
 
-
-      if user.save
-        newUser.save
-        logger.debug "____________________"
-        # logger.debug newUser[:]
-        logger.debug "____________________"
-        session[:user_id] = user.id 
-        redirect_to dashboard_url
-      else
-        redirect_to root_url, notice: "User Could not be created."
-      end   
+  def get_user_creation_error
+    return "User Could not be created."
   end
 
   def update
