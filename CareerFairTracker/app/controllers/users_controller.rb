@@ -16,15 +16,35 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def create
-      @user = User.new(user_params)
-      logger.debug "______________________"
-      logger.debug @user[:user_type]
-      logger.debug user_params
-      # if @user[:user_type] == "Recruiter"
+  def self.UserFactory(user)
+    newUser = ''
+    user_type = user[:user_type]
+    if user_type == "Admin"
+      newUser = Admin.new()
+    elsif user_type == "Student"
+      newUser = Student.new()
+    elsif user_type == "Recruiter"
+      newUser = Recruiter.new()
+    end
+    return newUser
+  end
 
-      if @user.save
-        session[:user_id] = @user.id 
+  def create
+      user = User.new(user_params)
+      newUser = UsersController.UserFactory(user)
+      # @user_type = @user[:user_type]
+      # could be a good place for a factory method
+      logger.debug "______________________"
+      logger.debug user[:user_type]
+      logger.debug user_params
+
+
+      if user.save
+        newUser.save
+        logger.debug "____________________"
+        # logger.debug newUser[:]
+        logger.debug "____________________"
+        session[:user_id] = user.id 
         redirect_to dashboard_url
       else
         redirect_to root_url, notice: "User Could not be created."

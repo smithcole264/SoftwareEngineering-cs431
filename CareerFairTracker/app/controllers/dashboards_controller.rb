@@ -1,6 +1,7 @@
 class DashboardsController < ApplicationController
 
     def index
+        @events = Event.all
         if session[:user_id] != nil
             user = User.find(session[:user_id])
             @user_type = user.user_type

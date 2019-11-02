@@ -5,9 +5,34 @@
 %br 
 %p= "#{@welcome_message}"
 %br
-= link_to "Edit Profile", edit_student_path(session[:user_id])
-%h2 ____________________________________________________________________________________
-= link_to "View All Students", students_path
-%br 
+- if @user_type == "Admin"
+    = link_to "Edit Profile", edit_admin_path(session[:user_id])
+    = link_to "Add Event", new_event_path
+    %br 
+    = link_to "Edit Events", events_path
+    %h2{:style => "text-align: center;"}= "Events" 
+    %br
+    %table
+        %thead 
+            %tr 
+                %th Event Name 
+                %th Event Date 
+                %th Start Time 
+                %th End Time  
+        %tbody 
+            -@events.each do |event|
+                %tr 
+                    %td= event.name
+                    %td= event.event_date 
+                    %td= event.start_time 
+                    %td= event.end_time
 %br
-= link_to "Add New Student", new_student_path
+
+-# if Admin user-type is detected
+    -# render the admin dashboard
+
+-# elsif Student user-type is detected
+    -# render the student dashboard
+
+-# elsif Recruiter user-type is detected
+    -# render the recruiter dashboard
