@@ -8,6 +8,8 @@
 - if @user_type == "Admin"
     = link_to "Edit Profile", edit_admin_path(session[:user_id])
     = link_to "Add Event", new_event_path
+    %br 
+    = link_to "Edit Events", events_path
     %h2{:style => "text-align: center;"}= "Events" 
     %br
     %table
