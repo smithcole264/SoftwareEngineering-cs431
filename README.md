@@ -1,10 +1,10 @@
 # CareerFairTracker
 
 ## What is the purpose of this project?
-The purpose of this project is to create a seamless check-in system through a web application that allows students attending the annual TAMU CSCE Career Fair to check-in at each company booth by scanning a QR code that links students' profiles to companies.
+The purpose of this project is to track attendance by creating a seamless check-in system that allows students attending career fairs to check-in at company booths by scanning a QR code.
 
 ### What is the problem?
-Many company recruiters at career fairs have attending students input information on devices or only take physical copies of resumes and cover letters. This can bog down lines, which increases wait times and decreases the amount of students that company recruiters can talk with, as well as the amount of companies that students can talk with. For recruitors, they only have the opportunity to learn about students in one-on-one conversations. Sometimes, students can be in a major or class year that the company is not recruiting for, which wastes the time of students and recruiters.
+Many recruiters at career fairs have students input information on devices or only take physical copies of resumes and cover letters. This can bog down lines, which increases wait times and decreases the amount of students that recruiters can talk with, as well as the amount of companies that students can talk with. For recruitors, they only have the opportunity to learn about students in one-on-one conversations. Sometimes, students can be in a major or class year that the company is not recruiting for, which wastes the tim
 
 ### What is the solution?
 Create and maintain a database of students, their majors, and any other pertinent information. Allow these students to be able to check-in with recruiters at CSCE career fairs. Communicate to and deny students with non-relevant majors and class years from "checking-in" so recruiters and students don't have their time wasted.
