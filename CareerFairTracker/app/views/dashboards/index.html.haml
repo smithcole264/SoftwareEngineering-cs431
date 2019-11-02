@@ -10,23 +10,21 @@
     = link_to "Edit Profile", edit_admin_path(session[:user_id])
     = link_to "Add Event", new_event_path
     %h2{:style => "text-align: center;"}= "Events" 
-
--# %h3= Date.today
-%br
-%table
-    %thead 
-        %tr 
-            %th Event Name 
-            %th Event Date 
-            %th Start Time 
-            %th End Time  
-    %tbody 
-        -@events.each do |event|
+    %br
+    %table
+        %thead 
             %tr 
-                %td= event.name
-                %td= event.event_date 
-                %td= event.start_time 
-                %td= event.end_time
+                %th Event Name 
+                %th Event Date 
+                %th Start Time 
+                %th End Time  
+        %tbody 
+            -@events.each do |event|
+                %tr 
+                    %td= event.name
+                    %td= event.event_date 
+                    %td= event.start_time 
+                    %td= event.end_time
 %br
 
 -# if Admin user-type is detected
