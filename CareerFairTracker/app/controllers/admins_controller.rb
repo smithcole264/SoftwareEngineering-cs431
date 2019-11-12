@@ -19,16 +19,18 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
-    @user = Admin.find(params[:id])
+    @admin = Admin.find(params[:id])
   end
 
   # POST /admins
   # POST /admins.json
   def create
     @admin = Admin.new(admin_params)
-
+    @user = User.find(session[:user_id])
+    @admin.user_id = @user.id
+    session[:user_id_for_their_type] = @admin.id
     respond_to do |format|
-      if @admin.save
+      if @admin.save!
         format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
         format.json { render :show, status: :created, location: @admin }
       else
