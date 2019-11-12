@@ -7,7 +7,7 @@
 %p= "#{@welcome_message}"
 %br
 - if @user_type == "Admin"
-    = link_to "Edit Profile", edit_admin_path(session[:user_id])
+    = link_to "Edit Profile", edit_admin_path(session[:user_id_for_their_type])
     = link_to "Add Event", new_event_path
     %br 
     = link_to "Edit Events", events_path
