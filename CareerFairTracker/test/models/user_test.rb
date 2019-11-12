@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
-  test test_class_working do
+  test 'test class working' do
     assert true
   end
 

@@ -3,24 +3,20 @@ class User < ApplicationRecord
     
     validates :username, presence: true, uniqueness: true
     validates_presence_of :user_type, :password_digest
-    #attr_accessor :user_type, :username, :password
-    
-    # def initialize(user_type, username, password)
-    #     @user_type = user_type
-    #     @username = username
-    #     @password = password
-    # end
 
+    has_many :admins, dependent: :destroy
+    # has_many :students, dependent: :destroy
+    # has_many :recruiters, dependent: :destroy
 
-    
-    # def _(username, password)
-    #     @user = User.
-        
-    #     ("username = ? and password = ?", *[username, password])
-    #     if @user 
-    #         return true
-    #     end
-    #     return false
-    # end
+    def self.factory(user)
+        user_type = user[:user_type]
+        if user_type == "Admin"
+          newUser = Admin.new()
+        elsif user_type == "Student"
+          newUser = Student.new()
+        elsif user_type == "Recruiter"
+          newUser = Recruiter.new()
+        end
+    end
 
 end
