@@ -11,21 +11,18 @@ RSpec.describe User, type: :model do
     expect(candidate.attributes.key(:username)).to eq(user.key(:username))
   end
 
-  it 'test User_Factory object creation' do
+  it 'test User #factory' do
     adminHash = {user_type: 'Admin', username: 'test_username', password_digest: 'test_password'}
-    admin = User.new(adminHash)
-    newAdmin = UsersController.establish(admin)
-    expect(newAdmin).to be_a(Admin)
+    admin = User.factory(adminHash)
+    expect(admin).to be_a(Admin)
 
     studentHash = {user_type: 'Student', username: 'test_username', password_digest: 'test_password'}
-    student = User.new(studentHash)
-    newStudent = UsersController.establish(student)
-    expect(newStudent).to be_a(Student)
-    
+    student = User.factory(studentHash)
+    expect(student).to be_a(Student)
+
     recruiterHash = {user_type: 'Recruiter', username: 'test_username', password_digest: 'test_password'}
-    recruiter = User.new(recruiterHash)
-    newRecruiter = UsersController.establish(recruiter)
-    expect(newRecruiter).to be_a(Recruiter)
+    recruiter = User.factory(recruiterHash)
+    expect(recruiter).to be_a(Recruiter)
   end
 
 end
