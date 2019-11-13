@@ -22,7 +22,7 @@
                 %th End Time  
         %tbody 
             -@events.each do |event|
-                %tr 
+                %tr.show_all_events_table 
                     %td= event.name
                     %td= event.event_date 
                     %td= event.start_time 
