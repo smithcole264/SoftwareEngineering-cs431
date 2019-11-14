@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if not @user.save
+    if not @user.save!
       redirect_to root_url, notice: get_user_creation_error() and return
     end
     session[:user_id] = @user.id
