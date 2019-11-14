@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :admins
+  delete 'events', to: 'events#destroy'
   resources :events
   resources :recruiters
   root 'home#index'

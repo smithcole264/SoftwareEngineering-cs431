@@ -1,29 +1,21 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
-  # GET /admins
-  # GET /admins.json
   def index
     @admins = Admin.all
   end
 
-  # GET /admins/1
-  # GET /admins/1.json
   def show
   end
 
-  # GET /admins/new
   def new
     @admin = Admin.new
   end
 
-  # GET /admins/1/edit
   def edit
     @admin = Admin.find(params[:id])
   end
 
-  # POST /admins
-  # POST /admins.json
   def create
     @admin = Admin.new(admin_params)
     @user = User.find(session[:user_id])
@@ -41,8 +33,6 @@ class AdminsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /admins/1
-  # PATCH/PUT /admins/1.json
   def update
     respond_to do |format|
       if @admin.update(admin_params)
@@ -55,8 +45,6 @@ class AdminsController < ApplicationController
     end
   end
 
-  # DELETE /admins/1
-  # DELETE /admins/1.json
   def destroy
     @admin.destroy
     respond_to do |format|
@@ -71,7 +59,7 @@ class AdminsController < ApplicationController
       @admin = Admin.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # only allow specific params from user
     def admin_params
       params.require(:admin).permit(:first_name, :last_name, :email)
     end
