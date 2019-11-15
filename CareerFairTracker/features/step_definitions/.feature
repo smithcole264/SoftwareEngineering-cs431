@@ -1,3 +1,59 @@
+Iteration 3
+
+#signup_company.feature
+
+Feature: Check the Company signup View
+  Test Company signup Page after pressing Sign Up
+
+Scenario: Check for the Company signup criteria
+  Given I am on the Home Page
+  When I click Sign Up
+  Then I should see fill-in criteria for Name, Email, Password, and Code.
+
+#login_company.feature
+
+Feature: Check the Company View page
+  Test Company View Page after logging in with email and password
+
+Scenario: Check for the Old Career Fairs Attended table and New Events table
+  Given I am on the Login page
+  When I enter email
+  And I enter password
+  And I click on Login
+  Then I should see the Company View page with the Old Career Fairs Attended table and the New Events table
+
+#event_signup_company.feature
+
+Feature: Check the Company Event Sign Up View page
+  Test Company Event Sign Up View Page after clicking on a New Event
+
+Scenario: Check for the Company Event Sign Up criteria
+  Given I am on the Company View page
+  When I click on a New Event from the table
+  Then I should see Company Name, Job Position, Major Requirement, Min Grad Date and Generate QR Code
+
+#prospect_view_company.feature
+
+Feature: Check the Prospect View page
+  Test Prospect View Page after clicking on a Old Career Fair Attended in table
+
+Scenario: Check for the Prospective Students list
+  Given I am on the Company View page
+  When I click on an Old Career Fair Attended
+  Then I should see the Prospect page with the Prospective Students table
+
+#view_of_student_company.feature
+
+Feature: Check the View of Student page
+  Test View of Student Page after clicking on a Prospective Student from table
+
+Scenario: Check for the View of Student criteria
+  Given I am on the Prospect View page
+  When I click on a Prospective Student from the table
+  Then I should see Student Name, Major, Minor, GPA, Classification, Grad Date, Resume
+
+#Iteration 2
+
 #login_admin.feature
 
 Feature: Check the Administrator View page
@@ -5,7 +61,7 @@ Feature: Check the Administrator View page
 
 Scenario: Check for the Career Fair Events table and Create New Event button
   Given I am on the Login page
-  When I enter email a
+  When I enter email
   And I enter password
   And I click on Login
   Then I should see the Admin View page with the Career Fair Events table and the Create New Event button
