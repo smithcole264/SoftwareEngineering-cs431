@@ -20,14 +20,20 @@
                 %th Event Date 
                 %th Start Time 
                 %th End Time  
+                %th 
         %tbody 
             -@events.each do |event|
+                -# - link_to nil, event_path(event) do
                 %tr.show_all_events_table 
                     %td= event.name
                     %td= event.event_date 
                     %td= event.start_time 
                     %td= event.end_time
+                    %td= link_to "View Attendance", event_path(event)
 %br
+
+-# - link_to nil, {:controller => 'events', :action => 'show', event: event} do
+
 
 -# if Admin user-type is detected
     -# render the admin dashboard
