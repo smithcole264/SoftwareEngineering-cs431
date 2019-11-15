@@ -19,7 +19,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     @user = User.find(session[:user_id])
-    @admin.id = @user.id
+    @admin.user_id = @user.id
     session[:user_id_for_their_type] = @admin.id
 
     respond_to do |format|

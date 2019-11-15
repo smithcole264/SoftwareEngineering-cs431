@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def determine_reroute_path_for(user)
     type = user[:user_type]
     if type == "Admin"
-      chosen_path = {controller: 'admins', action: 'new', user: user}
+      chosen_path = {controller: 'admins', action: 'new'}
     elsif type == "Student"
       chosen_path = new_student_path
     elsif type == "Recruiter"
