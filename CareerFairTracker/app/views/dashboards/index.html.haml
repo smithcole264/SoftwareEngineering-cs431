@@ -22,6 +22,7 @@
                 %th End Time  
         %tbody 
             -@events.each do |event|
+            - link_to nil, event_path(event)
                 %tr.show_all_events_table 
                     %td= event.name
                     %td= event.event_date 
