@@ -1,16 +1,19 @@
 %p#notice= notice
-%p
-  %strong Name:
-  = @event.name
-%p
-  %strong Event date:
-  = @event.event_date
-%p
-  %strong Start time:
-  = @event.start_time
-%p
-  %strong End time:
-  = @event.end_time
-= link_to 'Edit', edit_event_path(@event)
-|
-= link_to 'Back', dashboard_path
+%h1{:style => "text-align:center;"}= @event.name + " Attendance"
+= link_to 'Back To Dashboard', dashboard_path
+%table
+  %thead 
+    %tr.student_table_row
+      %th First Name
+      %th Last Name 
+      %th Major 
+      %th Graduation Month
+      %th Graduation Year
+  %tbody 
+    -@students.each do |student|
+      %tr.student_table_row 
+        %td= student.first_name
+        %td= student.last_name 
+        %td= student.major 
+        %td= student.expected_grad_month
+        %td= student.expected_grad_year
