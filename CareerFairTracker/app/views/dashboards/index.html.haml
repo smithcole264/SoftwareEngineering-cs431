@@ -24,7 +24,7 @@
         %tbody 
             -@events.each do |event|
                 -# - link_to nil, event_path(event) do
-                %tr.show_all_events_table 
+                %tr.event_table_row 
                     %td= event.name
                     %td= event.event_date 
                     %td= event.start_time 

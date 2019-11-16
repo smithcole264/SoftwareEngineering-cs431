@@ -137,6 +137,16 @@ table * {
   position: relative;
 }
 table td, table th {
+  width: auto;
+  padding-left: 8px;
+}
+
+table tr.student_table_row {
+  width: 20%;
+  padding-left: 8px;
+}
+
+table td tr .event_table_row {
   width: 25%;
   padding-left: 8px;
 }
