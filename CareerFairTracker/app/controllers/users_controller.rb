@@ -40,9 +40,9 @@ class UsersController < ApplicationController
     if type == "Admin"
       chosen_path = {controller: 'admins', action: 'new'}
     elsif type == "Student"
-      chosen_path = new_student_path
+      chosen_path = {controller: 'students', action: 'new'}
     elsif type == "Recruiter"
-      chosen_path = new_recruiter_path
+      chosen_path = {controller: 'recruiters', action: 'new'}
     end
   end
 
