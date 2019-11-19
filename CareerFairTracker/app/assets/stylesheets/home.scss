@@ -9,7 +9,7 @@
 }
 
 #header {
-    width: 980px;
+    width: 100%;
     margin: 0px auto;
     padding: 0px;
     height: 80px;
@@ -31,6 +31,7 @@
 #header form {
     margin-top: 15px;
     float: right;
+    margin-right: 15px;
 }
 
 #header form li {
@@ -59,9 +60,8 @@
 #header form input[type="submit"] {
     height: 20px;
     margin-top: 20px;
-    background-color: #857C8D;
+    background-color: rgb(151, 45, 41);
     color: white;
-    border: 1px solid #857C8D;
 }
 
 #wrapper {
@@ -78,7 +78,7 @@
 
 #wrapper #column_1 {
     margin-top: 30px;
-    width: 590px;
+    width: 50%;
     text-align: left;
 }
 
@@ -97,7 +97,7 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
-    max-width: 50%;
+    max-width: 60%;
 }
 
 #wrapper #column_2 {
@@ -151,7 +151,17 @@
     border: 1px solid #BDBDBD;
 }
 
+#wrapper #column_2 li input[type="submit"] {
+    width: 20%;
+    height: 40px;
+    margin-top: 20px;
+    background-color: rgb(112, 59, 56);
+    color: white;
+    border: 1px solid #857C8D;
+    font-size: 18px;
+}
+
 #wrapper #column_2 li {
     color: #2E2E2E;
-    font-size: 18px;
+    font-size: 30px;
 }
