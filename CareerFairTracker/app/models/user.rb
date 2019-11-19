@@ -5,8 +5,8 @@ class User < ApplicationRecord
     validates_presence_of :user_type, :password_digest
 
     has_many :admins, dependent: :destroy
-    # has_many :students, dependent: :destroy
-    # has_many :recruiters, dependent: :destroy
+    has_many :students, dependent: :destroy
+    has_many :recruiters, dependent: :destroy
 
     def self.factory(user)
         user_type = user[:user_type]
