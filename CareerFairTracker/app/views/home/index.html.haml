@@ -10,7 +10,7 @@
                     = label_tag :password
                     = password_field_tag :password
                 %li
-                    = button_to "Log In", controller: "sessions", action: "create"
+                    = button_to "Log In", controller: "sessions", action: "create", :id => 'login_button'
     %div#wrapper
         %div#column_1
             %p= "Tracks attendance and connects students to recruiters around them."
