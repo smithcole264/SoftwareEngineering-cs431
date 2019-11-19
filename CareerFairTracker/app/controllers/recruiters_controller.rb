@@ -12,7 +12,6 @@ class RecruitersController < ApplicationController
   def show
   end
 
-  # GET /recruiters/new
   def new
     @recruiter = Recruiter.new
   end
@@ -21,10 +20,11 @@ class RecruitersController < ApplicationController
   def edit
   end
 
-  # POST /recruiters
-  # POST /recruiters.json
   def create
+    @user = User.find(session[:user_id])
     @recruiter = Recruiter.new(recruiter_params)
+    @recruiter.user = @user
+    session[:user_id_for_their_type] = @recruiter.id
 
     respond_to do |format|
       if @recruiter.save
@@ -69,6 +69,6 @@ class RecruitersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recruiter_params
-      params.require(:recruiter).permit(:first_name, :last_name, :company_name, :email, :password, :password_confirmation, :company_code)
+      params.require(:recruiter).permit(:first_name, :last_name, :company_name, :email, :company_code)
     end
 end

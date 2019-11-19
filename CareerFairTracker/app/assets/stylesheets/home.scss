@@ -1,3 +1,167 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.everything {
+    background-color: #9EA0A8;
+}
+
+#header_wrapper {
+    width: 100%;
+    min-width: 980px;
+    background: #500000;
+}
+
+#header {
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px;
+    height: 80px;
+}
+
+#header li {
+    list-style-type: none;
+    float: left;
+    text-align: right;
+    color: white;
+}
+
+#header #sitename {
+    margin-top: 25px;
+    font-size: 30px;
+    width: 40%;
+}
+
+#header form {
+    margin-top: 15px;
+    float: right;
+    margin-right: 15px;
+}
+
+#header form li {
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+#header form input[type="text"] {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    width: 150px;
+    border: 1px solid #08298A;
+    height: 20px;
+    padding-left: 3px;
+}
+
+#header form input[type="password"] {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    width: 150px;
+    border: 1px solid #08298A;
+    height: 20px;
+    padding-left: 3px;
+}
+
+#header form input[type="submit"] {
+    height: 20px;
+    margin-top: 20px;
+    background-color: rgb(151, 45, 41);
+    color: white;
+}
+
+#wrapper {
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+#wrapper div {
+    float: left;
+    font-family: helvetica, arial, sans-serif;
+}
+
+#wrapper #column_1 {
+    margin-top: 30px;
+    width: 50%;
+    text-align: left;
+}
+
+#wrapper #column_1 p {
+    font-size: 28px;
+    line-height: 33px;
+    font-family: arial;
+    font-weight: bold;
+    margin: 0px;
+    color: #0e385f;
+    text-align: center;
+    padding-bottom: 12px;
+}
+
+#wrapper #column_1 img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 60%;
+}
+
+#wrapper #column_2 {
+    margin-top: 10px;
+    width: 390px;
+    text-align: left;
+}
+
+#wrapper #column_2 h1 {
+    margin: 15px;
+    font-size: 37px;
+    color: #2E2E2E;
+    text-align: center;
+}
+
+#wrapper #column_2 p {
+    font-size: 18px;
+    color: #2E2E2E;
+    text-align: center;
+}
+
+#wrapper #column_2 li {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+#wrapper #column_2 li input[type="select"] {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: 1px solid #BDBDBD;
+}
+
+#wrapper #column_2 li input[type="text"] {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: 1px solid #BDBDBD;
+}
+
+#wrapper #column_2 li input[type="password"] {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: 1px solid #BDBDBD;
+}
+
+#wrapper #column_2 li input[type="submit"] {
+    width: 20%;
+    height: 40px;
+    margin-top: 20px;
+    background-color: rgb(112, 59, 56);
+    color: white;
+    border: 1px solid #857C8D;
+    font-size: 18px;
+}
+
+#wrapper #column_2 li {
+    color: #2E2E2E;
+    font-size: 30px;
+}

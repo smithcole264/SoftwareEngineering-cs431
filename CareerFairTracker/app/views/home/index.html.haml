@@ -1,8 +1,28 @@
-%h1{:style => "text-align:center;"} Career-Fair Tracker Homepage
-%br
-%h3= "#{notice}"
-= link_to "Log In", login_path
-%br 
-%br 
-= link_to "Sign Up", signup_path
-
+%body.everything
+    %div#header_wrapper
+        %div#header
+            %li#sitename= "Career-Fair Tracker"
+            = form_tag sessions_path do
+                %li
+                    = label_tag :username
+                    = text_field_tag :username
+                %li
+                    = label_tag :password
+                    = password_field_tag :password
+                %li
+                    = button_to "Log In", controller: "sessions", action: "create", :id => 'login_button'
+    %div#wrapper
+        %div#column_1
+            %p= "Tracks attendance and connects students to recruiters around them."
+            =image_tag "home_page.jpeg"
+        %div#column_2
+            %h1= "Sign Up"
+            %p= "Its quick and easy"
+            = form_with(url: "/signup", method: "post") do
+                %li 
+                    = select_tag "user_type", options_for_select([["----------", ""], ["Admin", "Admin"], ["Student", "Student"], ["Recruiter", "Recruiter"]])
+                %li
+                    = text_field_tag 'username', nil, placeholder: "Enter Username"
+                %li    
+                    = password_field_tag 'password', nil, placeholder: "Enter Password"
+                    = button_to "Sign Up", signup_path
