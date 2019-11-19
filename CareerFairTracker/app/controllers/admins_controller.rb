@@ -17,10 +17,11 @@ class AdminsController < ApplicationController
   end
 
   def create
-    @admin = Admin.new(admin_params)
     @user = User.find(session[:user_id])
+    @admin = Admin.new(admin_params)
     @admin.user = @user
     session[:user_id_for_their_type] = @admin.id
+    
     respond_to do |format|
       if @admin.save!
         format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
