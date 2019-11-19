@@ -2,7 +2,7 @@
 %br
 = form_for signup_path do |form|
     = form.label "What type of user are you?"
-    = select(:user, :user_type, options_for_select([["----------", ""], ["Admin", "Admin"], ["Student", "Student"], ["Recruitor", "Recruitor"]]))
+    = select(:user, :user_type, options_for_select([["----------", ""], ["Admin", "Admin"], ["Student", "Student"], ["Recruiter", "Recruiter"]]))
     %br
     %br
     = form.label :username
