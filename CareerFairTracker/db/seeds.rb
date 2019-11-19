@@ -8,7 +8,7 @@
 mock_users = [
     {:user_type => "ADMIN", :username => "admin", :password => "password"},
     {:user_type => "STUDENT", :username => "student", :password => "password"},
-    {:user_type => "RECRUITOR", :username => "recruitor", :password => "password"},
+    {:user_type => "RECRUITER", :username => "recruiter", :password => "password"},
     {:user_type => "TEAMMATE", :username => "teamMember", :password => "password"}
 ]
 mock_users.each do |user|
