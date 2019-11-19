@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def new
   end
 
@@ -6,10 +8,10 @@ class SessionsController < ApplicationController
     user = User.find_by_username(params[:username])
     if isAuthentic?(user)
       session[:user_id] = user.id
-      redirect_to dashboard_url
+      redirect_to dashboard_url and return
     else 
       alert_email_or_password_invalid
-      render "new"
+      redirect_to root_url and return
     end
   end
 
