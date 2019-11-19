@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def user_params
-    params.require(:user).permit(:user_type, :username, :password)
+    params.permit(:user_type, :username, :password)
   end
 
   def index
@@ -20,19 +20,15 @@ class UsersController < ApplicationController
       @profile_name = "#{user.username}"
     end
   end
-
+# feel like there could be some bug in create
   def create
     @user = User.new(user_params)
     if not @user.save!
-      redirect_to root_url, notice: get_user_creation_error() and return
+      redirect_to root_url and return
     end
     session[:user_id] = @user.id
     destination = determine_reroute_path_for(@user)
     redirect_to destination and return
-  end
-
-  def get_user_creation_error
-    return "User Could not be created."
   end
 
   def determine_reroute_path_for(user)
