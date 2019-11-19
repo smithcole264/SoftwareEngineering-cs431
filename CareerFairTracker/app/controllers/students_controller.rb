@@ -17,22 +17,20 @@ class StudentsController < ApplicationController
     end
 
     def create
-        #Conditional can definitely be shortened
-        #Some Failed attempts:
-            #if student_params[:all] != ""
-            #if student_params[:all].present?
-            #if student_params[:first_name, :last_name] != ""
-            #if student_params[:first_name, :last_name].present?
-        if student_params[:first_name] != "" &&
-        student_params[:last_name] != "" &&
-        student_params[:major] != "" &&
-        student_params[:expected_grad_month] != "" &&
-        student_params[:expected_grad_year] != ""
-            @student = Student.create!(student_params)
+        @user = User.find(session[:user_id])
+        @student = Student.new(student_params)
+        @student.user = @user
+        session[:user_id_for_their_type] = @student.id
+    
+        respond_to do |format|
+            if @student.save
+                format.html { redirect_to @student, notice: 'Recruiter was successfully created.' }
+                format.json { render :show, status: :created, location: @student }
+            else
+                format.html { render :new }
+                format.json { render json: @student.errors, status: :unprocessable_entity }
+            end
         end
-        #This flash statement doesn't appear to do anything
-        flash[:notice] = "student was attempted to be added"
-        redirect_to students_path
     end
 
     def update
