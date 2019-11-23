@@ -4,7 +4,7 @@ Given(/^I am on the admin page$/) do
   visit admin_path
 end
 
-When /^I click the "([^\"]*)" link for "([^\"]*)"$/ do |link, cell_value|
+When (/^I click the "([^\"]*)" link for "([^\"]*)"$/) do |link, cell_value|
   within "//*[.//td[contains(.,'#{cell_value}')] and .//a[text()='#{link}']]" do |scope|
     scope.click_link link
   end

@@ -1,5 +1,3 @@
-Iteration 3
-
 #signup_company.feature
 
 Feature: Check the Company signup View
@@ -52,7 +50,6 @@ Scenario: Check for the View of Student criteria
   When I click on a Prospective Student from the table
   Then I should see Student Name, Major, Minor, GPA, Classification, Grad Date, Resume
 
-#Iteration 2
 
 #login_admin.feature
 
@@ -97,3 +94,14 @@ Scenario: Check for Event table from events list
   Given I am on the Admin View page
   When I click on a Career Fair Event in the Career Fair Events table
   Then I should see a table with student info and the Name of the Event for the clicked on Event
+
+
+#attendance_excel_export.feature
+
+Feature: Export the attendance table
+  Test that attendance table is exported to xlsx file
+
+Scenario: Admin exports attendance list
+  Given I am on the Admin Attendance View page
+  When I click on Export
+  Then the attendance list should be exported as a xlsx file
