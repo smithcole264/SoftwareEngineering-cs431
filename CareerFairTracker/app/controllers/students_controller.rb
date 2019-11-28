@@ -8,9 +8,11 @@ class StudentsController < ApplicationController
     end
 
     def show
+        @student = Student.find(params[:id])
     end
 
     def new 
+        @student = Student.new
     end
 
     def edit
@@ -20,17 +22,23 @@ class StudentsController < ApplicationController
         @user = User.find(session[:user_id])
         @student = Student.new(student_params)
         @student.user = @user
-        session[:user_id_for_their_type] = @student.id
-    
-        respond_to do |format|
-            if @student.save
-                format.html { redirect_to @student, notice: 'Recruiter was successfully created.' }
-                format.json { render :show, status: :created, location: @student }
-            else
-                format.html { render :new }
-                format.json { render json: @student.errors, status: :unprocessable_entity }
-            end
+        @student.user_id = @user.id
+        if @student.save!
+            redirect_to student_path(@student) and return
         end
+        session[:user_id_for_their_type] = @student.id
+        redirect_to student_dashboard_path and return
+    end
+
+    def dashboard
+        @user = current_user
+        if @user == nil
+            redirect_to root_url and return
+        end
+        @user_tag = @user[:username]
+        @student = Student.find_by user_id: @user.id
+        @user_type = @user[:user_type]
+        @welcome_message = "Welcome #{@user_tag}"
     end
 
     def update
