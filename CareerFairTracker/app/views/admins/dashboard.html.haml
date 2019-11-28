@@ -1,0 +1,31 @@
+%h3{:style => "text-align: right; float: right;"}= "#{@userTag}"
+%h1{:style => "text-align: center;"}= "#{@user_type} Dashboard" 
+%br 
+= link_to "Logout", logout_path
+%br
+%br 
+%p= "#{@welcome_message}"
+%br
+= link_to "Edit Profile", edit_admin_path(session[:user_id_for_their_type])
+= link_to "Add Event", new_event_path
+%br 
+= link_to "Edit Events", events_path
+%h2{:style => "text-align: center;"}= "Events" 
+%br
+%table
+    %thead 
+        %tr 
+            %th Event Name 
+            %th Event Date 
+            %th Start Time 
+            %th End Time  
+            %th 
+    %tbody 
+        -@events.each do |event|
+            %tr.event_table_row 
+                %td= event.name
+                %td= event.event_date 
+                %td= event.start_time 
+                %td= event.end_time
+                %td= link_to "View Attendance", event_path(event)
+%br

@@ -1,14 +1,10 @@
 class RecruitersController < ApplicationController
   before_action :set_recruiter, only: [:show, :edit, :update, :destroy]
 
-  # GET /recruiters
-  # GET /recruiters.json
   def index
     @recruiters = Recruiter.all
   end
 
-  # GET /recruiters/1
-  # GET /recruiters/1.json
   def show
   end
 
@@ -16,7 +12,6 @@ class RecruitersController < ApplicationController
     @recruiter = Recruiter.new
   end
 
-  # GET /recruiters/1/edit
   def edit
   end
 
@@ -24,21 +19,25 @@ class RecruitersController < ApplicationController
     @user = User.find(session[:user_id])
     @recruiter = Recruiter.new(recruiter_params)
     @recruiter.user = @user
-    session[:user_id_for_their_type] = @recruiter.id
-
-    respond_to do |format|
-      if @recruiter.save
-        format.html { redirect_to @recruiter, notice: 'Recruiter was successfully created.' }
-        format.json { render :show, status: :created, location: @recruiter }
-      else
-        format.html { render :new }
-        format.json { render json: @recruiter.errors, status: :unprocessable_entity }
-      end
+    @recruiter.user_id = @user.id
+    if not @recruiter.save!
+      redirect_to root_url and return
     end
+    session[:user_id_for_their_type] = @recruiter.id
+    redirect_to recruiter_dashboard_path and return
   end
 
-  # PATCH/PUT /recruiters/1
-  # PATCH/PUT /recruiters/1.json
+  def dashboard
+    @user = current_user
+    if @user == nil
+      redirect_to root_url and return
+    end
+    @user_tag = @user[:username]
+    @recruiter = Recruiter.find_by user_id: @user.id
+    @user_type = @user[:user_type]
+    @welcome_message = "Welcome #{@user_tag}"
+  end
+
   def update
     respond_to do |format|
       if @recruiter.update(recruiter_params)
@@ -51,8 +50,6 @@ class RecruitersController < ApplicationController
     end
   end
 
-  # DELETE /recruiters/1
-  # DELETE /recruiters/1.json
   def destroy
     @recruiter.destroy
     respond_to do |format|
@@ -67,7 +64,6 @@ class RecruitersController < ApplicationController
       @recruiter = Recruiter.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def recruiter_params
       params.require(:recruiter).permit(:first_name, :last_name, :company_name, :email, :company_code)
     end

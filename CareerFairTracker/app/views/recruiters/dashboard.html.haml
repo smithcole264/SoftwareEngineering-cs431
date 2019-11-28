@@ -1,0 +1,11 @@
+%h3{:style => "text-align: right; float: right;"}= "#{@userTag}"
+%h1{:style => "text-align: center;"}= "#{@user_type} Dashboard" 
+%br 
+= link_to "Logout", logout_path
+%br
+%br 
+%p= "#{@welcome_message}"
+%br
+= link_to "Edit Profile", edit_recruiter_path(session[:user_id_for_their_type])
+%br 
+= button_to "Start Career Fair Mode"

@@ -20,17 +20,25 @@ class AdminsController < ApplicationController
     @user = User.find(session[:user_id])
     @admin = Admin.new(admin_params)
     @admin.user = @user
-    session[:user_id_for_their_type] = @admin.id
-    
-    respond_to do |format|
-      if @admin.save!
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
-        format.json { render :show, status: :created, location: @admin }
-      else
-        format.html { render :new }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
-      end
+    @admin.user_id = @user.id
+    if not @admin.save!
+      redirect_to root_url and return
     end
+    session[:user_id_for_their_type] = @admin.id
+    redirect_to admin_dashboard_path and return
+
+  end
+
+  def dashboard
+    @user = current_user
+    if @user == nil
+      redirect_to root_url and return
+    end
+    @user_tag = @user[:username]
+    @admin = Admin.find_by user_id: @user.id
+    @user_type = @user[:user_type]
+    @welcome_message = "Welcome #{@user_tag}"
+    @events = Event.all
   end
 
   def update
