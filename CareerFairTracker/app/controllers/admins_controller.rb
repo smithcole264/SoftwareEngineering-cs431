@@ -26,19 +26,18 @@ class AdminsController < ApplicationController
     end
     session[:user_id_for_their_type] = @admin.id
     redirect_to admin_dashboard_path and return
-
   end
 
   def dashboard
-    @user = current_user
-    if @user == nil
+    if session[:user_id] == nil 
       redirect_to root_url and return
     end
+    @events = Event.all
+    @user = User.find(session[:user_id])
     @user_tag = @user[:username]
     @admin = Admin.find_by user_id: @user.id
     @user_type = @user[:user_type]
     @welcome_message = "Welcome #{@user_tag}"
-    @events = Event.all
   end
 
   def update
