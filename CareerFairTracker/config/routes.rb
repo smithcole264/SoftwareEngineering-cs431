@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'admin/dashboard', to: 'admins#dashboard', as: 'admin_dashboard'
+  get 'recruiter/dashboard', to: 'recruiters#dashboard', as: 'recruiter_dashboard'
+  get 'student/dashboard', to: 'students#dashboard', as: 'student_dashboard'
+  
   resources :admins
   delete 'events', to: 'events#destroy'
   resources :events
